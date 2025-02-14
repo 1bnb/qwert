@@ -59,6 +59,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
+    "update": "node ./scripts/update-dict-size.js",
     "build": "cross-env CI=false vite build --base=./",
     "test": "echo \"No tests\"",
     "test:e2e": "playwright test",

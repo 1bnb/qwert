@@ -53,7 +53,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const id = currentDictId
     if (!(id in idDictionaryMap)) {
-      setCurrentDictId('cet4')
+      setCurrentDictId('sentence')
       setCurrentChapter(0)
       return
     }

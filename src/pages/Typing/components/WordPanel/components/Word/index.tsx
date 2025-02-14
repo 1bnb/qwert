@@ -68,6 +68,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
     newWordState.letterStates = new Array(headword.length).fill('normal')
     newWordState.startTime = getUtcStringForMixpanel()
     newWordState.randomLetterVisible = headword.split('').map(() => Math.random() > 0.4)
+    console.log('打印newWordState', newWordState)
     setWordState(newWordState)
   }, [word, setWordState])
 
@@ -297,19 +298,29 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
           <div
             onMouseEnter={() => handleHoverWord(true)}
             onMouseLeave={() => handleHoverWord(false)}
-            className={`flex items-center ${isTextSelectable && 'select-all'} justify-center ${wordState.hasWrong ? style.wrong : ''}`}
+            className={`text-pretty flex flex-wrap items-center px-10 ${isTextSelectable && 'select-all'} justify-center ${
+              wordState.hasWrong ? style.wrong : ''
+            }`}
           >
             {wordState.displayWord.split('').map((t, index) => {
-              return <Letter key={`${index}-${t}`} letter={t} visible={getLetterVisible(index)} state={wordState.letterStates[index]} />
+              return (
+                <Letter
+                  key={`${index}-${t}`}
+                  letter={t}
+                  visible={getLetterVisible(index)}
+                  state={wordState.letterStates[index]}
+                  len={wordState.displayWord.length}
+                />
+              )
             })}
+            {pronunciationIsOpen && (
+              <div className="reactive ml-2 mt-8 h-9 w-9 -translate-y-1/2 transform ">
+                <Tooltip content={`快捷键${CTRL} + J`}>
+                  <WordPronunciationIcon word={word} lang={currentLanguage} ref={wordPronunciationIconRef} className="h-full w-full" />
+                </Tooltip>
+              </div>
+            )}
           </div>
-          {pronunciationIsOpen && (
-            <div className="absolute -right-12 top-1/2 h-9 w-9 -translate-y-1/2 transform ">
-              <Tooltip content={`快捷键${CTRL} + J`}>
-                <WordPronunciationIcon word={word} lang={currentLanguage} ref={wordPronunciationIconRef} className="h-full w-full" />
-              </Tooltip>
-            </div>
-          )}
         </div>
       </div>
       <TipAlert className="fixed bottom-10 right-3" show={showTipAlert} setShow={setShowTipAlert} />

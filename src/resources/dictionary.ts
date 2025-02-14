@@ -4,6 +4,17 @@ import { calcChapterCount } from '@/utils'
 // 中国考试
 const chinaExam: DictionaryResource[] = [
   {
+    id: 'sentence',
+    name: '高频361句',
+    description: '高频361句',
+    category: '中国考试',
+    tags: ['大学英语'],
+    url: '/dicts/sentence.json',
+    length: 361,
+    language: 'en',
+    languageCategory: 'en',
+  },
+  {
     id: 'cet4',
     name: 'CET-4',
     description: '大学英语四级词库',
@@ -2963,6 +2974,17 @@ const childrenEnglish: DictionaryResource[] = [
     tags: ['其他'],
     url: '/dicts/ReadingExplorer3.json',
     length: 239,
+    language: 'en',
+    languageCategory: 'en',
+  },
+  {
+    id: 'tenDayWords',
+    name: 'Ten Day Words',
+    description: '10天背完3000个基础单词',
+    category: '青少年英语',
+    tags: ['其他'],
+    url: '/dicts/tenDayWords.json',
+    length: 233,
     language: 'en',
     languageCategory: 'en',
   },

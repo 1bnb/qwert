@@ -22,10 +22,12 @@ export type LetterProps = {
   letter: string
   state?: LetterState
   visible?: boolean
+  len?: number
 }
 
-const Letter: React.FC<LetterProps> = ({ letter, state = 'normal', visible = true }) => {
+const Letter: React.FC<LetterProps> = ({ letter, state = 'normal', visible = true, len = 20 }) => {
   const fontSizeConfig = useAtomValue(fontSizeConfigAtom)
+  if (len > 20) fontSizeConfig.foreignFont = 30
   return (
     <span
       className={`m-0 p-0 font-mono font-normal ${
