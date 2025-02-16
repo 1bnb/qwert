@@ -144,7 +144,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
         console.log('letter', letter, wordState.displayWord.length)
 
         if (wordDictationConfig.type === 'hideAll') {
-          if (wordState.displayWord.length > 20 && letter == '␣') {
+          if (wordState.displayWord.length > 20 && [',', '.', '␣'].includes(letter)) {
             return true
           } else {
             return false
