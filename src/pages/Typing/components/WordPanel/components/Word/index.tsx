@@ -140,9 +140,16 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       if (wordState.letterStates[index] === 'correct' || (isShowAnswerOnHover && isHoveringWord)) return true
 
       if (wordDictationConfig.isOpen) {
-        if (wordDictationConfig.type === 'hideAll') return false
-
         const letter = wordState.displayWord[index]
+        console.log('letter', letter, wordState.displayWord.length)
+
+        if (wordDictationConfig.type === 'hideAll') {
+          if (wordState.displayWord.length > 20 && letter == '␣') {
+            return true
+          } else {
+            return false
+          }
+        }
         if (wordDictationConfig.type === 'hideVowel') {
           return vowelLetters.includes(letter.toUpperCase()) ? false : true
         }
@@ -238,11 +245,31 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
   useEffect(() => {
     if (wordState.hasWrong) {
       const timer = setTimeout(() => {
-        setWordState((state) => {
-          state.inputWord = ''
-          state.letterStates = new Array(state.letterStates.length).fill('normal')
-          state.hasWrong = false
-        })
+        // 重置输入状态
+        console.log('wordState', wordState)
+        if (wordState.displayWord.length > 20) {
+          setWordState((state) => {
+            // 回退到倒数第一个空格
+            const lastSpaceIndex = state.inputWord.lastIndexOf('␣')
+            if (lastSpaceIndex !== -1) {
+              state.inputWord = state.inputWord.slice(0, lastSpaceIndex)
+            } else {
+              // 如果没有空格，清空输入
+              state.inputWord = ''
+            }
+            // 根据 lastSpaceIndex 填充 state.letterStates
+            state.letterStates = state.inputWord.split('').map((_, index) => {
+              return index <= lastSpaceIndex ? 'correct' : 'normal'
+            })
+            state.hasWrong = false
+          })
+        } else {
+          setWordState((state) => {
+            state.inputWord = ''
+            state.letterStates = new Array(state.letterStates.length).fill('normal')
+            state.hasWrong = false
+          })
+        }
       }, 300)
 
       return () => {

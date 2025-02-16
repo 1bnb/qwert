@@ -8,6 +8,7 @@ import WordComponent from './components/Word'
 import { usePrefetchPronunciationSound } from '@/hooks/usePronunciation'
 import { isReviewModeAtom, isShowPrevAndNextWordAtom, loopWordConfigAtom, phoneticConfigAtom, reviewModeInfoAtom } from '@/store'
 import type { Word } from '@/typings'
+import { log } from 'console'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useContext, useMemo, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -55,6 +56,7 @@ export default function WordPanel() {
     if (state.chapterData.index < state.chapterData.words.length - 1 || currentWordExerciseCount < loopWordTimes - 1) {
       // 用户完成当前单词
       if (currentWordExerciseCount < loopWordTimes - 1) {
+        console.log('重新读一遍单词再跳转', state.chapterData)
         setCurrentWordExerciseCount((old) => old + 1)
         dispatch({ type: TypingStateActionType.LOOP_CURRENT_WORD })
         reloadCurrentWordComponent()

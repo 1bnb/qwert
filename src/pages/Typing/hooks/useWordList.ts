@@ -62,29 +62,84 @@ export function useWordList(): UseWordListResult {
 }
 
 const firstChapter = [
-  { name: 'cancel', trans: ['取消， 撤销； 删去'], usphone: "'kænsl", ukphone: "'kænsl" },
-  { name: 'explosive', trans: ['爆炸的； 极易引起争论的', '炸药'], usphone: "ɪk'splosɪv; ɪk'splozɪv", ukphone: "ɪk'spləusɪv" },
-  { name: 'numerous', trans: ['众多的'], usphone: "'numərəs", ukphone: "'njuːmərəs" },
-  { name: 'govern', trans: ['居支配地位， 占优势', '统治，治理，支配'], usphone: "'ɡʌvɚn", ukphone: "'gʌvn" },
-  { name: 'analyse', trans: ['分析； 分解； 解析'], usphone: "'æn(ə)laɪz", ukphone: "'ænəlaɪz" },
-  { name: 'discourage', trans: ['使泄气， 使灰心； 阻止， 劝阻'], usphone: "dɪs'kɝɪdʒ", ukphone: "dɪs'kʌrɪdʒ" },
-  { name: 'resemble', trans: ['像， 类似于'], usphone: "rɪ'zɛmbl", ukphone: "rɪ'zembl" },
   {
-    name: 'remote',
-    trans: ['遥远的； 偏僻的； 关系疏远的； 脱离的； 微乎其微的； 孤高的， 冷淡的； 遥控的'],
-    usphone: "rɪ'mot",
-    ukphone: "rɪ'məut",
+    name: 'The celebrated theory is still the source of great controversy.',
+    trans: ['这一著名的理论至今仍是巨大争议的根源。'],
   },
-  { name: 'salary', trans: ['薪金， 薪水'], usphone: "'sæləri", ukphone: "'sæləri" },
-  { name: 'pollution', trans: ['污染， 污染物'], usphone: "pə'luʃən", ukphone: "pə'luːʃn" },
-  { name: 'pretend', trans: ['装作， 假装'], usphone: "prɪ'tɛnd", ukphone: "prɪ'tend" },
-  { name: 'kettle', trans: ['水壶'], usphone: "'kɛtl", ukphone: "'ketl" },
-  { name: 'wreck', trans: ['失事；残骸；精神或身体已垮的人', '破坏'], usphone: 'rɛk', ukphone: 'rek' },
-  { name: 'drunk', trans: ['醉的； 陶醉的'], usphone: 'drʌŋk', ukphone: 'drʌŋk' },
-  { name: 'calculate', trans: ['计算； 估计； 计划'], usphone: "'kælkjulet", ukphone: "'kælkjuleɪt" },
-  { name: 'persistent', trans: ['坚持的， 不屈不挠的； 持续不断的； 反复出现的'], usphone: "pə'zɪstənt", ukphone: "pə'sɪstənt" },
-  { name: 'sake', trans: ['缘故， 理由'], usphone: 'sek', ukphone: 'seɪk' },
-  { name: 'conceal', trans: ['把…隐藏起来， 掩盖， 隐瞒'], usphone: "kən'sil", ukphone: "kən'siːl" },
-  { name: 'audience', trans: ['听众， 观众， 读者'], usphone: "'ɔdɪəns", ukphone: "'ɔːdiəns" },
-  { name: 'meanwhile', trans: ['与此同时'], usphone: "'minwaɪl", ukphone: "'miːnwaɪl" },
+  {
+    name: 'A good architectural structure should be useful, durable and beautiful.',
+    trans: ['一个好的建筑结构应该实用、耐用、美观。'],
+  },
+  {
+    name: 'A group meeting will be held tomorrow in the library conference room.',
+    trans: ['明天将在图书馆会议室举行小组会议。'],
+  },
+  {
+    name: 'A number of students have volunteer jobs.',
+    trans: ['许多学生从事志愿工作。'],
+  },
+  {
+    name: 'We can all meet at my office after the lecture.',
+    trans: ['讲座结束后我们可以在我的办公室见面。'],
+  },
+  {
+    name: 'Tutorials are scheduled in the final week of the term.',
+    trans: ['辅导课安排在学期的最后一周。'],
+  },
+  {
+    name: 'You can make an appointment to meet the librarian.',
+    trans: ['你可以和图书管理员约个时间。'],
+  },
+  {
+    name: 'Affordable housing is an important issue for all members of society.',
+    trans: ['经济适用房对社会所有成员来说都是一个重要问题。'],
+  },
+  {
+    name: 'Agenda items should be submitted by the end of the day.',
+    trans: ['议程项目应在当天结束前提交。'],
+  },
+  {
+    name: 'All dissertations must be accompanied by a submission form.',
+    trans: ['所有论文必须附上提交表格。'],
+  },
+  {
+    name: 'All industries are a system of inputs, processes, outputs and feedback.',
+    trans: ['所有行业都是一个输入、处理、输出和反馈的系统。'],
+  },
+  {
+    name: 'All of the assignments must be submitted in person to the faculty office.',
+    trans: ['所有作业必须亲自提交到学院办公室 / 教职员工办公室。'],
+  },
+  {
+    name: 'Economic development needs to be supported by the government.',
+    trans: ['经济发展需要政府的支持。'],
+  },
+  {
+    name: 'All of your assignments are due by tomorrow.',
+    trans: ['你明天应该交所有的作业。'],
+  },
+  {
+    name: 'The toughest part of postgraduate education is funding.',
+    trans: ['研究生教育最困难的部分是资金。'],
+  },
+  {
+    name: 'Our view is that educational reforms have been inadequately implemented.',
+    trans: ['我们的看法是，教育改革执行得不够充分。'],
+  },
+  {
+    name: 'Although sustainable development is not easy, it is an unavoidable responsibility.',
+    trans: ['可持续发展虽然不容易，但是一项不可推卸的责任。'],
+  },
+  {
+    name: 'Americans have typically defined the process of plant growth in quantitative terms.',
+    trans: ['美国人通常用定量术语来定义植物生长的过程。'],
+  },
+  {
+    name: 'An introduction is an essential element of presentation.',
+    trans: ['简介是演讲的基本要素。'],
+  },
+  {
+    name: 'The assignments should be submitted to the department office before the deadlines.',
+    trans: ['作业须于截止日期前送交系办公室。'],
+  },
 ]
